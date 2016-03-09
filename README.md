@@ -4,29 +4,29 @@ CS 012
 CS 12
 
 
-Streams
-	- String, File, IOstream
-	- 
-Objects/Classes
-	- Private and Public
-	- 
+Streams\n
+	- String, File, IOstream\n
+	- \n
+Objects/Classesv
+	- Private and Public\n
+	- \n
 
-Pointers and Arrays
+Pointers and Arrays\n
 	
-Dynamic Memory Allocation
-	- IntList & IntNode
+Dynamic Memory Allocation\n
+	- IntList & IntNode\n
+	- \n
+
+Recursion\n\n
 	- 
 
-Recursion
-	- 
-
-Searching and Sorting Algorithms
-	- Big O(n) notation
-	- Binary Search
-	- Insertion Sort
-	- Merge Sort
-
-Inheritance
-	- 
-	- Virtual & Abstract
+Searching and Sorting Algorithms\n
+	- Big O(n) notation\n
+	- Binary Search\n
+	- Insertion Sort\n
+	- Merge Sort\n
+\n
+Inheritance\n
+	- \n
+	- Virtual & Abstract\n
 
