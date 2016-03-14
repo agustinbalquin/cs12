@@ -25,25 +25,25 @@ CS 12
 
 	- Struct vs Class
 
-        - Mutators, Accessors, Private Helpers
+    - Mutators, Accessors, Private Helpers
 
-        - Constructors
+    - Constructors
 
-        - Big 3
+    - Big 3
 
-        - Implicit Parameters (this)
+    - Implicit Parameters (this)
 
-        - 
+    - 
 
 **Pointers and Arrays**
 
-        - c_strings 
+    - c_strings 
 
-        - Operators 
-            Dereference
-            Address-of 
+    - Operators 
+        Dereference
+        Address-of 
 
-        -
+    -
 	
 **Dynamic Memory Allocation**
 
@@ -75,7 +75,7 @@ CS 12
 
 **Inheritance**
 
-        - Inherits, Extend, Overrides
+    - Inherits, Extend, Overrides
 
 	- Virtual & Abstract
 	 
@@ -85,13 +85,13 @@ CS 12
 
 **Miscellaneous** 
 
-        - command line arguments
+    - command line arguments
 
-        - compiler flags 
+    - compiler flags 
 
-        - makefile
+    - makefile
 
-        - function headers
-            return types
-            parameters
+    - function headers
+        return types
+        parameters
 
