@@ -1,0 +1,177 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+void readData(const string &fileName, vector<double> &v1, vector<double> &v2) {
+    
+    ifstream ifs;
+    ifs.open(fileName.c_str());
+    if (!ifs.is_open()) {
+        cout << endl;
+        cout << "Error opening " <<  fileName << endl;
+        return;
+    }
+    
+    double x = 0;
+    
+    while (ifs >> x) {
+        
+        
+        v1.push_back(x);
+        ifs >> x;
+        v2.push_back(x);
+    
+    }
+    
+    ifs.close();
+    
+}
+
+
+double interpolation(double angle, const vector<double> &v1, const vector<double> &v2) {
+    int pos = 1;
+    double sol = 0;
+    
+    for (unsigned int i = 0; i < v1.size(); i++) {
+        
+        if (v1.at(i) == angle) {
+            
+            return v2.at(i);
+        }
+        
+    }
+    
+    for (unsigned int i = 1; i < v1.size(); i++) {
+        
+        if (v1.at(i) > angle && v1.at(i-1) < angle) {
+            pos = i;
+            break;
+        }
+        
+    }
+    
+    sol = v2.at(pos - 1) + (angle  - v1.at(pos - 1))/ (v1.at(pos) - v1.at(pos - 1)) * (v2.at(pos) - v2.at(pos -1)); 
+    return sol;
+}
+
+
+bool isOrdered(const vector<double> &v1) {
+    
+    bool check = true;
+    
+    for (unsigned int i = 0; i + 1 < v1.size(); i++) {
+        
+        if (v1.at(i) > v1.at(i+1)) {
+            
+            return false;
+            
+        }
+        
+    }
+    
+    return check;
+}
+
+unsigned findLocSmallest(const vector<double> &v, unsigned start)
+{
+	unsigned position = start;
+	for(unsigned a = start + 1; a < v.size(); a++)
+	{
+		if(v.at(a) < v.at(position))
+		{
+			position = a;
+		}
+	}
+	return position;
+}
+
+void reorder(vector<double> &v1, vector<double> &v2) {
+    
+    
+    // for (unsigned int i = 0; i + 1 < v1.size(); i++) {
+    //     double least = v1.at(i);
+        
+    //     for (unsigned int j = i; j < v1.size(); j++) {
+            
+    //         if (least > v1.at(j)) {
+                
+    //             least = v1.at(j);
+    //         }
+    //     }
+    //     v1.at(i) = least;
+    // }
+    for (unsigned i = 0; i + 1 < v1.size(); ++i) {
+        
+		swap(v1.at(i), v1.at(findLocSmallest(v1, i)));
+		swap(v2.at(i), v2.at(findLocSmallest(v2, i)));
+	}
+    
+    
+}
+
+
+
+int main() {
+    
+    double angle = 0;
+    double coef = 0;
+    string file;
+    vector<double> flight;
+    vector<double> lift;
+    
+    cout << "Enter name of input data file:" << endl;
+    
+    cin >> file;
+    
+    readData(file,flight,lift);
+    if (flight.size() == 0) {
+        return 0;
+    }
+    if (!isOrdered(flight)) {
+         reorder(flight,lift);
+    }
+    
+    cout << endl;
+    
+    
+    
+
+    string str = "yes";
+    while (str == "yes") { 
+    
+        int pos = flight.size();
+        //cout << "Enter an angle" << endl;
+        if (flight.size() == 0){
+            pos = 1;
+        }
+        
+        
+        cin >> angle;
+        while (angle + 1 > flight.at(pos) || angle  < flight.at(0)) {
+            cout << "Enter an angle" << endl;
+            cin >> angle;
+        }
+        
+        coef = interpolation(angle, flight, lift);
+        cout << coef << endl;
+       
+        str = "no";
+        cout << "Do you want to continue?" << endl;
+        
+        cin >> str;
+        if (str != "yes") {
+            break;
+        }
+    }
+    
+    
+    
+    
+    
+    return 0;
+    
+}

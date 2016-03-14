@@ -1,0 +1,97 @@
+#include <fstream>
+#include <iostream>
+#include <cstdlib> //needed for exit function
+
+using namespace std;
+
+int fileSum(string str);
+
+int main() {
+   int y;
+   string filename;
+   cout << "Enter the name of the input file: ";
+   cin >> filename;
+   y = fileSum(filename);
+   if (y == 1) {
+      cout << "Error opening " << filename << endl;
+   } 
+   else {
+      cout << "Sum: " << y << endl;
+   }
+   
+   return 0;
+}
+
+int fileSum(string str) {
+   int sum = 0;
+   int x = 0;
+   ifstream inFile;
+   inFile.open(str.c_str());
+   
+   
+   if (!inFile.is_open()) {
+      
+      
+      return 1;
+      
+   }
+   
+   while (inFile >> x) {
+      
+      sum += x;
+      
+   }
+   inFile.close();
+   return sum;
+}
+
+///////
+///////
+///////
+
+
+#include <fstream>
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+int charCnt(string str, char ch);
+
+int main() {
+   string filename;
+   char ch;
+   cout << "Enter the name of the input file: ";
+   cin >> filename;
+   cout << "Enter a character: ";
+   cin >> ch;
+   
+   cout << "# of " << ch << "'s: " << charCnt(filename, ch) << endl;
+   
+   return 0;
+}
+
+int charCnt(string str, char ch) {
+   int count = 0;
+   ifstream ifs;
+   ifs.open(str.c_str());
+   char c;
+   
+   if (!ifs.is_open()) {
+      return 1;   
+   }
+   
+   while (ifs.get(c)) {
+      
+      if (c == ch) {
+         count++;
+      }
+      
+   }
+   
+   
+   return count;
+   
+}
+
+
