@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+
+double mean(const double array[], int arraySize) {
+    double sum = 0;
+    for (int i = 0; i < arraySize; i++) {
+        
+        sum += array[i];
+        
+    }
+    
+    return sum / arraySize;
+    
+}
+
+// in an array along with the size of the array and returns the mean of all values stored in the array.
+void remove(double array[], int arraySize, int index) {
+     
+     for (int i = index; i+1 < arraySize ; i++) {
+            array[i] = array[i+1];
+         
+     }
+     
+}
+
+//Passes in an array, the size of the array, and the index of a value to be removed from the array. The function should remove the value at this index by shifting all of the values after this value up, keeping the same relative order of all values not removed.
+void display(const double array[], int arraySize) {
+    
+
+    for (int i = 0; i < arraySize - 1; i++) {
+             cout << array[i] << ", ";
+    }
+     cout << array[arraySize -1];
+
+}
+
+//Passes in an array and the size of the array, and then outputs each value in the array separated by a comma and space, with no comma, space or newline at the end.
+
+int main() {
+    int rem = 0;
+    int size = 10;
+    double arr[10] = {0.0 ,0.0};
+     cout << "Enter 10 values:" <<  endl;
+    for (int i = 0; i < size; i++) {
+         cin >> arr[i];
+    }
+    //display(arr,size);
+     cout <<  endl;
+     cout << "Mean: " << mean(arr, size);
+     cout <<  endl;
+     cout <<  endl;
+     cout << "Enter index of value to be removed: " <<  endl;
+     cin >> rem;
+     cout << "Before removing value: ";
+    display(arr,size);
+     cout <<  endl;
+    remove(arr, size, rem);
+     cout << "After removing value: ";
+    size--;
+    display(arr,size);
+     cout <<  endl;
+    
+    
+    
+    return 0;
+}
