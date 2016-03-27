@@ -94,4 +94,7 @@ CS 012
         return types
         parameters
 
+**Note**
+
+This repository is open to the public but I do not condone cheating nor plagiarism of any kind. It is not my responsibility if one is caught for using the code listed here. 
 
