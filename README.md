@@ -32,7 +32,6 @@ CS 012
 
     - Implicit Parameters (this)
 
-    - 
 
 **Pointers and Arrays**
 
@@ -42,13 +41,11 @@ CS 012
         Dereference
         Address-of 
 
-    -
 	
 **Dynamic Memory Allocation**
 
 	- IntList & IntNode
 
-	- 
 
 **Recursion** 
 
@@ -80,7 +77,6 @@ CS 012
 	 
         - Polymorphism
 
-        - 
 
 **Miscellaneous** 
 
